@@ -6,7 +6,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_library(DSLibrary INTERFACE
         include/DSLibrary/DynamicStack.hpp
-        include/DSLibrary/FixedStack.hpp)
+        include/DSLibrary/FixedStack.hpp
+        include/DSLibrary/FixedQueue.hpp)
 
 target_include_directories(DSLibrary
     INTERFACE
