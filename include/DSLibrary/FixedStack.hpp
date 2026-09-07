@@ -31,7 +31,7 @@ namespace DSLibrary
             {
                 if(this->size > 0)
                 {
-                    this->array[this->size] = NULL;
+                    this->array[this->size].~T();
                     size--;
                 }
                 else
@@ -43,6 +43,11 @@ namespace DSLibrary
             {
                 this->size = _size;
                 this->array = new int[size];
+            }
+            ~FixedStack()
+            {
+                clear();
+                std::free(this->array);
             }
     };
 }
