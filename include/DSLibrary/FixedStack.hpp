@@ -46,7 +46,10 @@ namespace DSLibrary
             }
             ~FixedStack()
             {
-                clear();
+                while (this->size > 0)
+                {
+                    this->RemoveLastItem();
+                }
                 std::free(this->array);
             }
     };
