@@ -17,7 +17,7 @@ target_include_directories(DSLibrary
 target_compile_features(DSLibrary INTERFACE cxx_std_20)
 
 include(GNUInstallDirs)
-include(CmakePackageConfigHelpers)
+include(CMakePackageConfigHelpers)
 
 install(DIRECTORY include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
