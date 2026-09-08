@@ -32,9 +32,31 @@ namespace DSLibrary
             }
         
         public:
+            void Enqueue(T item)
+            {
+                if(this->size == this->capacity)
+                {
+                    this->grow();
+                }
+
+                this->array[this->size] = item;
+                this->size++;
+            }
+            void Dequeue()
+            {
+                this->array[0].~T();
+                for (size_t i = 1; i < array_size; ++i;)
+                {
+                    this->array[i - 1] = std::move(this->array[i]);
+                }
+            }
             DynamicQueue(): this->array(nullptr), this->size(0), this->capacity(0) {}
             ~DynamicQueue()
             {
+                while (this->size > 0)
+                {
+                    this->
+                }
                 std::clear(this->array);
             }
     };
