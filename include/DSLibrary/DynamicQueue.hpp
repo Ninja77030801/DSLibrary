@@ -55,7 +55,7 @@ namespace DSLibrary
             {
                 while (this->size > 0)
                 {
-                    this->
+                    this->Dequeue();
                 }
                 std::clear(this->array);
             }
