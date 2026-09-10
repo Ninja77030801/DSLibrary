@@ -11,6 +11,14 @@ namespace DSLibrary
             int capacity;
             int size;
 
+            void clear()
+            {
+                while(this->size > 0)
+                {
+                    this->Dequeue();
+                }         
+            }
+
         public:
             FixedQueue(int _capacity)
             {
@@ -48,5 +56,5 @@ namespace DSLibrary
                     this->size--;
                 }
             }
-    }
+    };
 }
