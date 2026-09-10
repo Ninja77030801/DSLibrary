@@ -24,11 +24,12 @@ namespace DSLibrary
 
                 for (size_t i = 0; i < this->size; i++)
                 {
-                    new (&newBlock[i]) T(std::move(this->data[i]))
+                    new (&newBlock[i]) T(std::move(this->data[i]));
                 }
 
                 std::free(this->array);
                 this->array = newBlock;
+                this->capacity = newCapacity;
             }
         
         public:
@@ -50,7 +51,7 @@ namespace DSLibrary
                     this->array[i - 1] = std::move(this->array[i]);
                 }
             }
-            DynamicQueue(): this->array(nullptr), this->size(0), this->capacity(0) {}
+            DynamicQueue(): array(nullptr), size(0), capacity(0) {}
             ~DynamicQueue()
             {
                 while (this->size > 0)
