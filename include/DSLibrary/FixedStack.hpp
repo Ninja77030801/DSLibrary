@@ -35,7 +35,7 @@ namespace DSLibrary
                     throw(std::overflow_error("You've reached stack capacity."));
                 }
             }
-            void RemoveLastItem()
+            void Pop()
             {
                 if(this->size > 0)
                 {
@@ -56,7 +56,7 @@ namespace DSLibrary
             {
                 while (this->size > 0)
                 {
-                    this->RemoveLastItem();
+                    this->Pop();
                 }
                 std::free(this->array);
             }
