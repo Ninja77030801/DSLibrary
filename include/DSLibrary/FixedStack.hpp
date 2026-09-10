@@ -8,23 +8,31 @@ namespace DSLibrary
     {
         private:
             T* array;
-        public:
             int capacity;
             int size;
+        public:
             T Peek()
             {
                 return this->array[size - 1];
+            }
+            int Size()
+            {
+                return this->size;
+            }
+            int Capacity()
+            {
+                return this->size;
             }
             void Add(T item)
             {
                 if(this->size != this->capacity)
                 {
-                    this->array[this->capacity];
+                    this->array[this->size] = item;
                     size++;
                 }
                 else
                 {
-                    std::cout << "Error! Stack is full";
+                    throw(std::overflow_error("You've reached stack capacity."));
                 }
             }
             void RemoveLastItem()

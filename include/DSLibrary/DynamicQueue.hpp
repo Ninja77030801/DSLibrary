@@ -58,7 +58,7 @@ namespace DSLibrary
                 {
                     this->Dequeue();
                 }
-                std::clear(this->array);
+                std::free(this->array);
             }
     };
 }
