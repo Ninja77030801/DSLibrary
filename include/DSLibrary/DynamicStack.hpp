@@ -16,7 +16,7 @@ namespace DSLibrary
             {
                 size_t newCapacity = (this->capacity ==0) ? 2 : this->capacity * 2;
 
-                T* newBlock = (T*) std::malloc(newCapacity * sizeof(T))
+                T* newBlock = (T*) std::malloc(newCapacity * sizeof(T));
                 if(!newBlock)
                 {
                     throw std::bad_alloc();
@@ -30,13 +30,14 @@ namespace DSLibrary
 
                 std::free(this->array);
                 this->array = newBlock;
+                this->capacity = newCapacity;
             }
         public:
-            DynamicStack(): this->array(nullptr), this->size(0), this->capacity(0) {}
+            DynamicStack(): array(nullptr), size(0), capacity(0) {}
 
             ~DynamicStack()
             {
-                clear();
+                Clear();
                 std::free(this->array);
             }
             void Add(T item)
@@ -46,7 +47,7 @@ namespace DSLibrary
                     this->grow();
                 }
 
-                new ( &this->array[this->size] ) T(value);
+                new ( &this->array[this->size] ) T(std::move(item));
                 this->size++;
             }
 
@@ -54,7 +55,7 @@ namespace DSLibrary
             {
                 if(this->size == 0)
                 {
-                    throw std::underflow_error("Stack underflow: Cannot remove from empty stack")
+                    throw std::underflow_error("Stack underflow: Cannot remove from empty stack");
                 }
 
                 this->size--;
