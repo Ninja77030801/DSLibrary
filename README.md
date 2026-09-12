@@ -6,7 +6,11 @@ This library was built for ensuring that beginners in C++ can use basic data str
 
 ### How to install
 
-After cloning the repository, head to the directory using a terminal and build it using <br>
-`cmake -B build` <br>
+After cloning the repository, head to the directory using a terminal and build it using
+```bash
+cmake -B build
+```
 Then, you can install using <br>
-`sudo cmake --install build`
+```bash
+sudo cmake --install build
+```
