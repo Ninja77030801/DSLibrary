@@ -24,7 +24,7 @@ namespace DSLibrary
 
                 for (size_t i = 0; i < this->size; i++)
                 {
-                    new (&newBlock[i]) T(std::move(this->data[i]));
+                    new (&newBlock[i]) T(this->array[i]);
                 }
 
                 std::free(this->array);
