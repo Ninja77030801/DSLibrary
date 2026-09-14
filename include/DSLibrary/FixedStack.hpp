@@ -39,7 +39,7 @@ namespace DSLibrary
             {
                 if(this->size > 0)
                 {
-                    this->array[this->size].~T();
+                    this->array[this->size - 1].~T();
                     size--;
                 }
                 else
