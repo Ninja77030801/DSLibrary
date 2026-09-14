@@ -1,5 +1,6 @@
 #pragma once
-
+#include <stdexcept>
+#include <limits>
 
 namespace DSLibrary 
 {
@@ -13,7 +14,14 @@ namespace DSLibrary
         public:
             T Peek()
             {
-                return this->array[size - 1];
+                if(this->size > 0)
+                {
+                    return this->array[size - 1];
+                }
+                else
+                {
+                    return std::underflow_error("No items in stack.");
+                }
             }
             int Size()
             {
@@ -59,7 +67,7 @@ namespace DSLibrary
                 {
                     this->Pop();
                 }
-                std::free(this->array);
+                delete[] this->array;
             }
     };
 }
