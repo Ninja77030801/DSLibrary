@@ -50,7 +50,8 @@ namespace DSLibrary
             FixedStack(int _size)
             {
                 this->capacity = _size;
-                this->array = new int[this->capacity];
+                this->size = 0;
+                this->array = new T[this->capacity];
             }
             ~FixedStack()
             {
