@@ -20,7 +20,7 @@ namespace DSLibrary
                 }
                 else
                 {
-                    return std::underflow_error("No items in stack.");
+                    throw std::underflow_error("No items in stack.");
                 }
             }
             int Size()
@@ -36,7 +36,7 @@ namespace DSLibrary
                 if(this->size != this->capacity)
                 {
                     this->array[this->size] = item;
-                    size++;
+                    this->size++;
                 }
                 else
                 {
@@ -48,7 +48,7 @@ namespace DSLibrary
                 if(this->size > 0)
                 {
                     this->array[this->size - 1].~T();
-                    size--;
+                    this->size--;
                 }
                 else
                 {

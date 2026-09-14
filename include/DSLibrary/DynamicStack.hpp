@@ -1,5 +1,7 @@
 #pragma once
 #include <cstdlib>
+#include <stdexcept>
+#include <limits>
 
 namespace DSLibrary
 {

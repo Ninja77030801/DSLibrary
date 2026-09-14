@@ -1,4 +1,6 @@
 #pragma once
+#include <stdexcept>
+#include <limits>
 
 
 namespace DSLibrary
@@ -23,12 +25,20 @@ namespace DSLibrary
             FixedQueue(int _capacity)
             {
                 this->capacity;
-                this->array = new int[this->capacity];
+                this->array = new T[this->capacity];
             }
             ~FixedQueue()
             {
                 clear();
-                std::free(this->array);
+                delete[] this->array;
+            }
+
+            void Peek()
+            {
+                if(this->size > 0)
+                {
+                    return this->array[0];
+                }
             }
 
             void Enqueue(T item)
