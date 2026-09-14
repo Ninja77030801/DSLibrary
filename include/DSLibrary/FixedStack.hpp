@@ -21,7 +21,7 @@ namespace DSLibrary
             }
             int Capacity()
             {
-                return this->size;
+                return this->capacity;
             }
             void Add(T item)
             {
@@ -49,8 +49,8 @@ namespace DSLibrary
             }
             FixedStack(int _size)
             {
-                this->size = _size;
-                this->array = new int[size];
+                this->capacity = _size;
+                this->array = new int[this->capacity];
             }
             ~FixedStack()
             {
