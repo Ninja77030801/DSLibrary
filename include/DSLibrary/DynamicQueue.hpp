@@ -27,9 +27,9 @@ namespace DSLibrary
                     new (&newBlock[i]) T(this->array[i]);
                 }
 
-                std::free(this->array);
                 this->array = newBlock;
                 this->capacity = newCapacity;
+                std::free(this->array);
             }
         
         public:
