@@ -39,6 +39,10 @@ namespace DSLibrary
                 {
                     return this->array[0];
                 }
+                else
+                {
+                    throw std::underflow_error("Error: Stack is empty!");
+                }
             }
 
             void Enqueue(T item)
