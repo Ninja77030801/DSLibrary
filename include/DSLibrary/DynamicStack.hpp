@@ -30,7 +30,7 @@ namespace DSLibrary
                     this->array[i].~T();
                 }
 
-                std::free(this->array);
+                delete[] this->array;
                 this->array = newBlock;
                 this->capacity = newCapacity;
             }
@@ -40,7 +40,7 @@ namespace DSLibrary
             ~DynamicStack()
             {
                 Clear();
-                std::free(this->array);
+                delete[] this->array;
             }
             void Add(T item)
             {
@@ -61,7 +61,7 @@ namespace DSLibrary
                 }
 
                 this->size--;
-                this->array[this->size].~T();
+                this->array[this->size - 1].~T();
             }
 
             T& Top()
